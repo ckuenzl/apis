@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package futtracker.service;
 
-import "futtracker/v1/account.proto";
+import "futtracker/v1/account/account.proto";
 
 option go_package = "github.com/ckuenzl/apis/futtracker/v1/service";
 
