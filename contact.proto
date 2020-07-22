@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package futtracker.contact;
+
+import "api/proto3/shared/shared.proto";
+
+option go_package = 'github.com/ckuenzl/futtracker/api/proto3/contact';
+
+//City Messages
+
+message CityRequest {
+    CityFilter filter = 2;
+    futtracker.shared.Pager pager = 3;
+}
+
+message CityFilter{
+    repeated int32 ids = 1;
+    string title = 2;
+}
+
+message CityResponse{
+    repeated CityEntity cities = 1;
+    bool error = 2;
+}
+
+message CityEntity{
+    int32 id = 1;
+    string title = 2;
+}
+
+// Address Messages
+
+message AddressEntity{
+    int32 id = 1;
+    string city = 2;
+    string zipcode = 3;
+    string street = 4;
+    string house_number = 5;
+}
+
+message ContactEntity{
+    int32 id = 1;
+    AddressEntity address = 2;
+    string phone = 3;
+    string email = 4;
+}
