@@ -2,18 +2,10 @@ syntax = "proto3";
 
 package futtracker.service;
 
-import "futtracker/v1/account/account.proto";
+// import "futtracker/v1/account/account.proto";
 
 option go_package = "github.com/ckuenzl/apis/futtracker/v1/service";
 
 service FuttrackerService {
-    rpc Login(futtracker.account.LoginRequest) returns (futtracker.account.LoginResponse);
-}
-
-message Id {
-    int32 id = 1;
-}
-
-message Empty {
-
+    // rpc Login(futtracker.account.LoginRequest) returns (futtracker.account.LoginResponse);
 }
