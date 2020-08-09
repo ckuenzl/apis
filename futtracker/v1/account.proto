@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package futtracker.account;
 
-option go_package = "github.com/ckuenzl/apis/futtracker/v1;account";
+option go_package = "github.com/ckuenzl/apis/futtracker/v1;futtracker";
 
 message LoginRequest{
     string username = 1;
