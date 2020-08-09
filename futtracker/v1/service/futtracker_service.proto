@@ -4,7 +4,7 @@ package futtracker.service;
 
 // import "futtracker/v1/account/account.proto";
 
-option go_package = 'github.com/ckuenzl/apis/futtracker/v1;service';
+option go_package = 'github.com/ckuenzl/apis/futtracker/v1/service';
 
 service FuttrackerService {
     // rpc Login(futtracker.account.LoginRequest) returns (futtracker.account.LoginResponse);
