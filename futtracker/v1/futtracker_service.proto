@@ -6,7 +6,7 @@ package futtracker.service;
 
 option go_package = 'github.com/ckuenzl/apis/futtracker/v1;futtracker';
 
-service FuttrackerService {
+service FuttrackerService{
     // rpc Login(futtracker.account.LoginRequest) returns (futtracker.account.LoginResponse);
     rpc Test(Empty) returns (Empty);
 }
