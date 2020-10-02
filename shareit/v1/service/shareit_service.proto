@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package shareit.service;
 
-option go_package = 'github.com/ckuenzl/apis/shareit/v1/service';
+option go_package = 'github.com/ckuenzl/apis/shareit/v1/service;service';
 
 service ShareItService{
     rpc Test(Empty) returns (Empty);
