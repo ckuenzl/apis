@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package shareit;
+package shareit.service;
 
-option go_package = '.;service';
+option go_package = '.';
 
 service ShareItService{
     rpc Test(Empty) returns (Empty);
