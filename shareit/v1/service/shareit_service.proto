@@ -5,9 +5,13 @@ package shareit.service;
 option go_package = '.';
 
 service ShareItService{
-    rpc Test(Empty) returns (Empty);
+    rpc Test(Empty) returns (TestString);
 }
 
 message Empty{
 
+}
+
+message TestString {
+    string title = 1;
 }

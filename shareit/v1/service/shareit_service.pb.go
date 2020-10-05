@@ -55,8 +55,48 @@ func (m *Empty) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Empty proto.InternalMessageInfo
 
+type TestString struct {
+	Title                string   `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *TestString) Reset()         { *m = TestString{} }
+func (m *TestString) String() string { return proto.CompactTextString(m) }
+func (*TestString) ProtoMessage()    {}
+func (*TestString) Descriptor() ([]byte, []int) {
+	return fileDescriptor_3022ae706155c48c, []int{1}
+}
+
+func (m *TestString) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_TestString.Unmarshal(m, b)
+}
+func (m *TestString) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_TestString.Marshal(b, m, deterministic)
+}
+func (m *TestString) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TestString.Merge(m, src)
+}
+func (m *TestString) XXX_Size() int {
+	return xxx_messageInfo_TestString.Size(m)
+}
+func (m *TestString) XXX_DiscardUnknown() {
+	xxx_messageInfo_TestString.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TestString proto.InternalMessageInfo
+
+func (m *TestString) GetTitle() string {
+	if m != nil {
+		return m.Title
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*Empty)(nil), "shareit.service.Empty")
+	proto.RegisterType((*TestString)(nil), "shareit.service.TestString")
 }
 
 func init() {
@@ -64,15 +104,17 @@ func init() {
 }
 
 var fileDescriptor_3022ae706155c48c = []byte{
-	// 113 bytes of a gzipped FileDescriptorProto
+	// 146 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xd2, 0x28, 0xce, 0x48, 0x2c,
 	0x4a, 0xcd, 0x2c, 0xd1, 0x2f, 0x33, 0xd4, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e, 0xd5, 0x87,
 	0x0a, 0xc5, 0x43, 0xf9, 0x7a, 0x05, 0x45, 0xf9, 0x25, 0xf9, 0x42, 0xfc, 0x50, 0x61, 0x3d, 0xa8,
-	0xb0, 0x12, 0x3b, 0x17, 0xab, 0x6b, 0x6e, 0x41, 0x49, 0xa5, 0x91, 0x07, 0x17, 0x5f, 0x30, 0x48,
-	0xce, 0xb3, 0x24, 0x18, 0x22, 0x25, 0x64, 0xc6, 0xc5, 0x12, 0x92, 0x5a, 0x5c, 0x22, 0x24, 0xa6,
-	0x87, 0xa6, 0x49, 0x0f, 0xac, 0x43, 0x0a, 0x87, 0xb8, 0x13, 0x73, 0x14, 0xa3, 0x5e, 0x12, 0x1b,
-	0xd8, 0x3e, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0x11, 0x7c, 0x3d, 0xb8, 0x9b, 0x00, 0x00,
-	0x00,
+	0xb0, 0x12, 0x3b, 0x17, 0xab, 0x6b, 0x6e, 0x41, 0x49, 0xa5, 0x92, 0x12, 0x17, 0x57, 0x48, 0x6a,
+	0x71, 0x49, 0x70, 0x49, 0x51, 0x66, 0x5e, 0xba, 0x90, 0x08, 0x17, 0x6b, 0x49, 0x66, 0x49, 0x4e,
+	0xaa, 0x04, 0xa3, 0x02, 0xa3, 0x06, 0x67, 0x10, 0x84, 0x63, 0xe4, 0xcb, 0xc5, 0x17, 0x0c, 0xd2,
+	0xef, 0x59, 0x12, 0x0c, 0xd1, 0x2e, 0x64, 0xcd, 0xc5, 0x02, 0xd2, 0x25, 0x24, 0xa6, 0x87, 0x66,
+	0xb0, 0x1e, 0xd8, 0x54, 0x29, 0x69, 0x0c, 0x71, 0x84, 0x25, 0x4e, 0xcc, 0x51, 0x8c, 0x7a, 0x49,
+	0x6c, 0x60, 0x87, 0x19, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0xf2, 0x92, 0xd4, 0x58, 0xc4, 0x00,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -87,7 +129,7 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ShareItServiceClient interface {
-	Test(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error)
+	Test(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*TestString, error)
 }
 
 type shareItServiceClient struct {
@@ -98,8 +140,8 @@ func NewShareItServiceClient(cc grpc.ClientConnInterface) ShareItServiceClient {
 	return &shareItServiceClient{cc}
 }
 
-func (c *shareItServiceClient) Test(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*Empty, error) {
-	out := new(Empty)
+func (c *shareItServiceClient) Test(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*TestString, error) {
+	out := new(TestString)
 	err := c.cc.Invoke(ctx, "/shareit.service.ShareItService/Test", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -109,14 +151,14 @@ func (c *shareItServiceClient) Test(ctx context.Context, in *Empty, opts ...grpc
 
 // ShareItServiceServer is the server API for ShareItService service.
 type ShareItServiceServer interface {
-	Test(context.Context, *Empty) (*Empty, error)
+	Test(context.Context, *Empty) (*TestString, error)
 }
 
 // UnimplementedShareItServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedShareItServiceServer struct {
 }
 
-func (*UnimplementedShareItServiceServer) Test(ctx context.Context, req *Empty) (*Empty, error) {
+func (*UnimplementedShareItServiceServer) Test(ctx context.Context, req *Empty) (*TestString, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Test not implemented")
 }
 
