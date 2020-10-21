@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pwdmanager.service.v1;
 
-option go_package = "pwdmanager/v1/service;service";
+option go_package = "github.com/ckuenzl/apis/pwdmanager/v1/service;service";
 
 import "github.com/ckuenzl/apis/pwdmanager/v1/structs/passwd.proto";
 
