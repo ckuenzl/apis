@@ -4,7 +4,7 @@ package pwdmanager.service.v1;
 
 option go_package = "pwdmanager/v1/service;service";
 
-import "./pwdmanager/v1/structs/passwd.proto";
+import "github.com/ckuenzl/apis/pwdmanager/v1/structs/passwd.proto";
 
 service PasswordManager {
     rpc GetPasswords (Empty) returns (PasswordList) {}
