@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package pwdmanager.service;
+
+option go_package = "pwdmanager/v1/service;service";
+
+import "pwdmanager/v1/structs/passwd.proto";
+
+service PasswordManager {
+    rpc GetPasswords (Empty) returns (structs.PasswordList) {}
+  }
+
+message Empty {}  
