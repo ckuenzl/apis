@@ -2,12 +2,10 @@ syntax = "proto3";
 
 package pwdmanager.service.v1;
 
-option go_package = "github.com/ckuenzl/apis/pwdmanager/v1/service;service";
-
-import "github.com/ckuenzl/apis/pwdmanager/v1/structs/passwd.proto";
+import "pwdmanager/v1/structs/passwd.proto";
 
 service PasswordManager {
-    rpc GetPasswords (Empty) returns (PasswordList) {}
-  }
+    rpc GetPasswords (Empty) returns (pwdmanager.structs.v1.PasswordList) {}
+}
 
 message Empty {}  

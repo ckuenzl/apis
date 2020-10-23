@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package pwdmanager.structs.v1;
 
-option go_package = "github.com/ckuenzl/apis/pwdmanager/v1/structs;structs";
-
 message Password{
     int32 id = 1;
     string pwd = 2;

@@ -1,6 +1,6 @@
 workspace(name = "org_ckuenzl_go_api")
 
-load("//:bazel/deps.bzl", "go_ckuenzl_dependencies")
+load("//:BAZEL/deps.bzl", "go_ckuenzl_dependencies")
 
 go_ckuenzl_dependencies()
 
@@ -21,6 +21,15 @@ load("@com_github_grpc_grpc//bazel:grpc_deps.bzl", "grpc_deps")
 grpc_deps()
 
 ##############################################################################
+# BAZEL
+##############################################################################
+load("@upb//bazel:repository_defs.bzl", "bazel_version_repository")
+
+bazel_version_repository(
+    name = "bazel_version",
+)
+
+##############################################################################
 # Golang
 ##############################################################################
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
@@ -28,17 +37,21 @@ load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_depe
 go_rules_dependencies()
 
 go_register_toolchains(
-    go_version = "1.13.7",
+    go_version = "1.15.3",
 )
 
+##############################################################################
+# Gazelle
+##############################################################################
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 
 gazelle_dependencies()
 
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
+load("//:BAZEL/repositories.bzl", "go_ckuenzl_repositories", "go_ckuenzl_grpc_dependencies")
 
-load("//:bazel/repositories.bzl", "go_ckuenzl_repositories")
+go_ckuenzl_grpc_dependencies()
+
 # gazelle:repo bazel_gazelle
-# gazelle:repository_macro bazel/repositories.bzl%go_ckuenzl_repositories
+# gazelle:repository_macro BAZEL/repositories.bzl%go_ckuenzl_repositories
 go_ckuenzl_repositories()
